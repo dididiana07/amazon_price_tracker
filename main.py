@@ -6,10 +6,14 @@ import smtplib
 def amazon_price(url_product, money_currency: str):
     """Returns the price of a product from amazon."""
     URL_PRODUCT = url_product
-    amazon_product_content = requests.get(url=URL_PRODUCT).content
+    headers = {
+        "Accept-Language": "es-ES,es;q=0.9",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+    }
+    amazon_product_content = requests.get(url=URL_PRODUCT, headers=headers).content
     soup = BeautifulSoup(amazon_product_content, "html.parser")
 
-    price = float(soup.find(name="span", class_="a-offscreen").text.split(f"{money_currency}")[0].replace(",",""))
+    price = float(soup.find(name="span", class_="a-offscreen").text.split(f"{money_currency}")[0].replace(",", "."))
     return price
 
 def user_price_cut_off():
@@ -32,12 +36,10 @@ def main():
                 connection.login(user=YAHOO_USER,
                                  password=YAHOO_PASSWORD)
                 connection.sendmail(from_addr=YAHOO_USER,
-                                    to_addrs="examplemail@gmail.com",
+                                    to_addrs="dianamarianabalasca99@gmail.com",
                                     msg="Subject:Amazon Product is on discount!\n\nDon't lose your opportunity and check"
                                         f"it\n{URL}")
             its_on = False
-
-
 
 if __name__ == "__main__":
     main()
