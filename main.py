@@ -36,7 +36,7 @@ def main():
                 connection.login(user=YAHOO_USER,
                                  password=YAHOO_PASSWORD)
                 connection.sendmail(from_addr=YAHOO_USER,
-                                    to_addrs="dianamarianabalasca99@gmail.com",
+                                    to_addrs="",
                                     msg="Subject:Amazon Product is on discount!\n\nDon't lose your opportunity and check"
                                         f"it\n{URL}")
             its_on = False
