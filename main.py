@@ -25,7 +25,7 @@ def main():
     YAHOO_USER = os.environ["YAHOO_EMAIL"]
     YAHOO_PASSWORD = os.environ["AUTH_YAHOO"]
     URL = "https://www.amazon.es/Instant-Pot-Crisp-el%C3%A9ctrica-m%C3%BAltiple/dp/B0979HKNRH/ref=sr_1_1?keywords=" \
-          "instant%2Bpot%2Bduo%2Bcrisp%2Bair%2Bfryer&qid=1682494509&sprefix=instant%2Bpot%2Caps%2C181&sr=8-1&th=1"
+          "instant%2Bpot%2Bduo%2Bcrisp%2Bair%2Bfryer&qid=1682494509&sprefix=instant%2Bpot%2Caps%2C181&sr=8-1&th=1" # Add an input function 
     product_current_price = amazon_price(URL, money_currency="€")
     user_price = user_price_cut_off()
     its_on = True
